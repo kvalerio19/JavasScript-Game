@@ -21,9 +21,11 @@ function checkGuess() {
         lastResult.textContent = 'Congratulations! You got it right';
         lastResult.style.backgroundColor = 'green';
         lowOrHi.textContent = '';
+        setGameOver();
     }
     else if (guessCount ===10){
         lastResult.textContent = 'Game Over';
+        setGameOver();
     } else {
         lastResult.textContent = 'Wrong!';
         lastResult.style.backgroundColor = 'red';
@@ -46,7 +48,7 @@ function setGameOver() {
     guessSubmit.disabled = true;
     resetButton = document.createElement('button');
     resetButton.textContent = 'Start New Game';
-    document.body.append (resetButton);
+    document.body.append(resetButton);
     resetButton.addEventListener('click', resetGame);
 
 }
@@ -70,5 +72,5 @@ function resetGame() {
     lastResult.style.backgroundColor = 'white';
 
     randomNumber = Math.floor(Math.random() * 100) + 1;
-    
+
 }
